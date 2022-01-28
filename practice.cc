@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include <stack>
 #include <string>
 using namespace std;
 
@@ -52,49 +53,115 @@ public:
         // Side not: hey, it's ok. Keep your head up.
     }
 
-    // Not finished yet
+    // Not finished yet (please redo in the future)
     // https://leetcode.com/problems/reverse-words-in-a-string-iii/
     string reverseWords(string s) {
         string result;        
-        string word;
-        string reverseWord;
+        // string word;
+        
+        // string reverseWord;
 
 
-        // Traverse through the list and find each word 
+        // // Traverse through the list and find each word 
+        // for (int i = 0; i < s.length(); i++){
+        //     if (s[i] == ' ' || i == s.length() - 1){
+        //         // Word is now complete, we need to reßverse it.
+        //         cout << word << endl;
+        //         for (int j = word.size() + 1; j > 0; j--){
+        //             reverseWord = reverseWord + word[j];
+        //             cout << word[j] << endl; 
+        //         }
+        //         cout << reverseWord << endl;
+
+        //         // Word is successfully reversed, check if last word and add to result string
+        //         if (i == s.length() - 1){
+        //             result = result + reverseWord;
+        //             break;
+        //         } else {
+        //             reverseWord = reverseWord + ' ';
+        //             result = result + reverseWord;
+        //             reverseWord = "";
+        //         }
+
+                
+                
+        //         // Replace what is in word with an empty string and repeat the process
+        //         word = "";
+        //     } else {
+        //         // Keeping adding to the word vector so it can be reversed
+        //         word += s[i];
+        //     }
+        // }
+
+        // // Return our final answer
+        // cout << "Result is: " << result << endl;
+        // return result;
+
+
+        stack<char> wordStack;
+
+        // Add the phrase into a stack
         for (int i = 0; i < s.length(); i++){
-            if (s[i] == ' ' || i == s.length() - 1){
-                // Word is now complete, we need to reßverse it.
-                cout << word << endl;
-                for (int j = word.size() + 1; j > 0; j--){
-                    reverseWord = reverseWord + word[j];
-                    cout << word[j] << endl; 
-                }
-                cout << reverseWord << endl;
+            if (s[i] == ' ') {
 
-                // Word is successfully reversed, check if last word and add to result string
-                if (i == s.length() - 1){
-                    result = result + reverseWord;
-                    break;
-                } else {
-                    reverseWord = reverseWord + ' ';
-                    result = result + reverseWord;
-                    reverseWord = "";
-                }
-
-                
-                
-                // Replace what is in word with an empty string and repeat the process
-                word = "";
-            } else {
-                // Keeping adding to the word vector so it can be reversed
-                word += s[i];
             }
+            wordStack.push(s[i]);
+            // cout << s[i] << endl;
         }
 
-        // Return our final answer
-        cout << "Result is: " << result << endl;
+        // cout << wordStack.top() << endl;
+        // wordStack.pop();
+        // cout << wordStack.top() << endl;
+
+        // // Pop the stack and add this into a string
+        // for (int i = 0; i < wordStack.size(); i++){
+        //     result = result + wordStack.top();
+        //     cout << result << endl;
+        //     // Removing the top of the stack (the letter we just added to our string)
+        //     wordStack.pop();
+        // }
+
+        // // cout << result << endl;
+
         return result;
     }
+
+    // Come back to this
+    // https://leetcode.com/problems/student-attendance-record-i/
+    bool lessThan2Abs(string s) {
+        int counter = 0;
+        cout << "we are herer" << endl;
+        for (int i = 0; i < s.size(); i++){
+            if (s[i] == 'A') {
+                counter++;
+            }
+        }
+        
+        cout << "Counter value: " << counter << endl;
+
+        if (counter < 2) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    // PPALLP
+    bool checkRecord(string s) {        
+        if (s.find("LLL") || lessThan2Abs(s) == false) {
+            cout << "here" << endl;
+            return false;
+        } else if ((s.find("L") || s.find("LL")) && lessThan2Abs(s) == true) {
+            return true;
+        } else {
+            
+            return false;
+        }
+    }
+
+    // Tree practice
+    // https://leetcode.com/problems/n-ary-tree-preorder-traversal/
+    
 };
 
 
@@ -113,4 +180,6 @@ int main(){
     
     sols.reverseWords("Let's take LeetCode contest");
     // "s'teL ekat edoCteeL tsetnoc"
+
+    cout << sols.checkRecord("PPALLP") << endl;
 }
