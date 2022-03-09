@@ -161,6 +161,65 @@ public:
 
     // Tree practice
     // https://leetcode.com/problems/n-ary-tree-preorder-traversal/
+
+    int returnHighestVal (vector<int> array) {
+        // Make the first element of the array to be the largest so far
+        int maxSoFar = array[0];
+
+        // Traverse through the array and compare
+        // If the current element is equal to or greater, then make it maxSoFar!
+        for (int i = 0; i < array.size(); i++){
+            if (array[i] >= maxSoFar) {
+                maxSoFar = array[i];
+            }
+        }
+
+        // Return our greatest value!
+        return maxSoFar;
+    }
+
+    // Most recurring element in an array
+    // int mostRecurring (vector<int> array) {
+    //     vector<pair<int,int>> data;
+    //     int locator = 0;
+
+    //     // Iterate through and update data
+    //     for (int i = 0; i < array.size(); i++) {
+    //         // Check if value already exists in data
+    //         if (find(array.begin(), array.end(), i) != array.end()){
+    //             // Add one to it's counter
+    //             locator = find(data.begin(), data.end(), i);
+    //             // data.at().second++;
+    //         }
+    //     }
+    //     return 1;
+    // }
+
+    // Write a C++ program to find the two repeating elements in a given array of integers.
+    vector<int> repeatingElements (vector<int> array) {
+        vector<int> idxs;
+
+        // Find the repeating indices
+        for (int i = 0; i < array.size(); i++){
+            for (int j = 0; j < array.size(); j++){
+                if (j == 0 && i == 0) {
+                    continue;
+                } else {
+                    if (j == i) {
+                        // We found both!
+                        idxs.push_back(i);
+                        idxs.push_back(j);
+                    }
+                }
+                    
+                }
+            }
+            return idxs;
+        }
+
+        
+
+        
     
 };
 
@@ -173,13 +232,18 @@ int main(){
     array.push_back(2);
     array.push_back(7);
     array.push_back(11);
-    array.push_back(12);
+    array.push_back(7);
     sols.twoSum(array, 9);
 
     // sols.prettyPrint(array); 
     
-    sols.reverseWords("Let's take LeetCode contest");
+    // sols.reverseWords("Let's take LeetCode contest");
     // "s'teL ekat edoCteeL tsetnoc"
 
-    cout << sols.checkRecord("PPALLP") << endl;
+    // cout << sols.checkRecord("PPALLP") << endl;
+
+    // cout << sols.returnHighestVal(array) << endl;
+
+    vector<int> solution = sols.repeatingElements(array);
+    sols.prettyPrint(solution);
 }
