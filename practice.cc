@@ -274,10 +274,10 @@ public:
      */
 
     // https://leetcode.com/problems/add-two-numbers/
-    ListNode *addTwoNumbers(ListNode *l1, ListNode *l2)
-    {
-        // First, gather the numbers in general
-    }
+    // ListNode *addTwoNumbers(ListNode *l1, ListNode *l2)
+    // {
+    //     // First, gather the numbers in general
+    // }
 
     vector<int> googleProblem (vector<int> array) {
         vector<int> answer;
@@ -303,18 +303,32 @@ public:
     }
 };
 
+    void summation() {
+        int sum = 0;
+        for (int n = 0; n < 5; n++){
+            sum += 3*n;
+        }
+        cout << sum << "\n";
+    }
 
+    void product(){
+        int product = 1;
+        for (int n = 1; n < 5; n++){
+            product *= 2*n;
+        }
+        cout << product << "\n";
+    }
 
 int main()
 {
     // Declaring sols, an instance of the class Solution
-    Solution sols;
+    // Solution sols;
 
-    vector<int> array;
-    array.push_back(1);
-    array.push_back(2);
-    array.push_back(3);
-    array.push_back(4);
+    // vector<int> array;
+    // array.push_back(1);
+    // array.push_back(2);
+    // array.push_back(3);
+    // array.push_back(4);
     // sols.twoSum(array, 9);
     // sols.googleProblem(array);
     // sols.prettyPrint(array);
@@ -328,5 +342,8 @@ int main()
 
     // vector<int> solution = sols.repeatingElements(array);
     // sols.prettyPrint(solution);
-    sols.prettyPrint(sols.googleProblem(array));
+    // sols.prettyPrint(sols.googleProblem(array));
+    summation();
+    product();
+
 }
